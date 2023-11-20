@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <title>Backened App</title>
+  <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css" />
+ 
+</head>
+<body>
+
+
+ 
+      <ul class="page-list">
+        <% todoTasks.forEach(details => { %> <% if (details._id == idTask) { %>
+        <li class="page-list-item">
+          <form action="/edit/<%= details._id %>" method="POST">
+            <h3>Edit your Title</h3>
+            <input type="text"  value="<%= details.title %>" name="title" />
+            <h3>Edit your Content</h3>
+            <input type="text" value="<%= details.content %>" name="content"  />
+            <button type="submit">Confirm</button>
+            <!-- <button class="glow-on-hover" type="submit">Confirm</button> -->
+            <a href="/" class="cancel">Cancel</a>
+          </form>
+
+
+
+
+        </li>
+        <% } else { %>
+          <li class="page-list-item">
+            <div class="page-list-item-name"><%= details.title %></div>
+            <div class="page-list-item-name"><%= details.content %></div>
+            <a href="/edit/<%= details._id %>" class="edit">
+              <span>Edit</span>
+            </a>
+            <a href="/remove/<%= details._id %>" class="remove">
+              <span>Delete</span>
+            </a>
+          </li>
+          <% } %> <% }) %>
+
+      
+
+
+
+      </ul>
+    
+    </div>
+  </div>
+</body>
