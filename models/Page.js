@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const todoTaskSchema = new mongoose.Schema({
 title: {
-    type: String,
-    required: true
+type: String,
+required: true
 },
 content: {
 type: String,
